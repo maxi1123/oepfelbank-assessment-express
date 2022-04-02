@@ -1,12 +1,13 @@
 const express = require("express");
-const axios = require("axios");
 const app = express();
+app.disable("x-powered-by");
+
 const port = 3000;
 const accountsRouter = require("./src/routes/accounts.route");
 const transactionsRouter = require("./src/routes/transactions.route");
 const BASE_URL = "/api/v1";
 
-app.get(`${BASE_URL}/`, (req, res) => {
+app.get(`${BASE_URL}/`, (_req, res) => {
     res.json({ message: "ok" });
 });
 
