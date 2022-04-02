@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Express server for the oepfelbank frontend",
   "main": "index.js",
-  "type": "module",
+  "type": "es5",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
