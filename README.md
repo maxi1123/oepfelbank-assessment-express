@@ -4,7 +4,7 @@
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=maxi1123_oepfelbank-assessment-express&metric=bugs)](https://sonarcloud.io/summary/new_code?id=maxi1123_oepfelbank-assessment-express)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=maxi1123_oepfelbank-assessment-express&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=maxi1123_oepfelbank-assessment-express)
 
-Proudly presenting the Server code for the Oepfelbank technical assessment. The server acts as a sort of "middleware" to reduce API handling on the client's part.
+(A tiny bit less) proudly presenting the Server code for the Oepfelbank technical assessment. The server acts as a sort of "middleware" to transform data and reduce API handling complexity on the client's part.
 </br>
 </br>
 Made with ❤️ and a lot of 🍎 by myself. An apple a day keeps the doctor away.
