@@ -6,7 +6,7 @@ async function getWithId(req, res) {
         const id = req.params.id;
         res.json(await transactions.getTransactionsById(bearerToken, id));
     } catch (err) {
-        if (error.response.status === 400) {
+        if (err.response.status === 400) {
             res.status(400).send(
                 "We could not find any transactions for this account or you don't have access."
             );

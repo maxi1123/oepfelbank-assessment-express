@@ -15,7 +15,7 @@ async function getWithId(req, res) {
         const id = req.params.id;
         res.json(await accounts.getAccountById(bearerToken, id));
     } catch (err) {
-        if (error.response.status === 400) {
+        if (err.response.status === 400) {
             res.status(400).send(
                 "We could not find any account with given ID."
             );
