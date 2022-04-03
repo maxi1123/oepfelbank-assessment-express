@@ -7,7 +7,7 @@
 (A tiny bit less) proudly presenting the Server code for the Oepfelbank technical assessment. The server acts as a sort of "middleware" to transform data and reduce API handling complexity on the client's part.
 </br>
 </br>
-Made with ❤️ and a lot of 🍎 by myself. An apple a day keeps the doctor away.
+Made with ❤️
 
 ## 🛠️ Metadata
 This project was generated with: 
