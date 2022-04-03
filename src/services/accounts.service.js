@@ -1,6 +1,7 @@
 const axios = require("axios");
 const utils = require("../utils/auth-header.util");
 const mathUtil = require("../utils/math.util");
+const endpoints = require("../utils/endpoints.constants");
 
 async function getAccounts(bearerToken) {
     const authHeader = utils.authHeader(bearerToken);
@@ -8,7 +9,7 @@ async function getAccounts(bearerToken) {
     const accountResponseArray = [];
 
     const accountResponse = await axios.get(
-        "https://ob.sandbox.natwest.com/open-banking/v3.1/aisp/accounts/",
+        `${endpoints.BASE_API_ENDPOINT}/open-banking/v3.1/aisp/accounts/`,
         authHeader
     );
 
@@ -25,7 +26,7 @@ async function getAccounts(bearerToken) {
 
     for (let i = 0; i < accountResponseArray.length; i++) {
         const balanceResponse = await axios.get(
-            `https://ob.sandbox.natwest.com/open-banking/v3.1/aisp/accounts/${accountResponseArray[i].accountId}/balances`,
+            `${endpoints.BASE_API_ENDPOINT}/open-banking/v3.1/aisp/accounts/${accountResponseArray[i].accountId}/balances`,
             authHeader
         );
 
@@ -53,7 +54,7 @@ async function getAccountById(bearerToken, id) {
     let selectedAccount = {};
 
     const accountResponse = await axios.get(
-        "https://ob.sandbox.natwest.com/open-banking/v3.1/aisp/accounts/",
+        `${endpoints.BASE_API_ENDPOINT}/open-banking/v3.1/aisp/accounts/`,
         authHeader
     );
 
@@ -71,7 +72,7 @@ async function getAccountById(bearerToken, id) {
     });
 
     const balanceResponse = await axios.get(
-        `https://ob.sandbox.natwest.com/open-banking/v3.1/aisp/accounts/${id}/balances`,
+        `${endpoints.BASE_API_ENDPOINT}/open-banking/v3.1/aisp/accounts/${id}/balances`,
         authHeader
     );
 
