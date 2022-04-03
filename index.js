@@ -9,7 +9,7 @@ const authRouter = require("./src/routes/auth.route");
 const BASE_URL = "/api/v1";
 
 app.get(`${BASE_URL}/`, (_req, res) => {
-    res.json({ message: "ok" });
+  res.json({ message: "ok" });
 });
 
 app.use(`${BASE_URL}/accounts`, accountsRouter);
