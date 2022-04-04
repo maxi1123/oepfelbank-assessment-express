@@ -36,6 +36,7 @@ async function initUIFlow() {
         "ReadScheduledPaymentsBasic",
         "ReadScheduledPaymentsDetail",
         "ReadDirectDebits",
+        "ReadInvestmentAccounts"
       ],
     },
     Risk: {},
