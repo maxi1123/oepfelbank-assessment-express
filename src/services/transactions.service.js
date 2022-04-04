@@ -23,6 +23,19 @@ async function getTransactionsById(bearerToken, id) {
         };
     }
 
+    // Push some fake Data (will appear in savings & currents account as credit)
+
+    total += 225.0;
+
+    transactionsResponseArray.push({
+        transactionId: "123123",
+        transactionInfo: "Salärzahlung",
+        status: "Booked",
+        bookingDate: "02/25/2022",
+        amount: "225.00",
+        currency: "GBP",
+    });
+
     transactionsResponse.data.Data.Transaction.map((e) => {
         let amount;
 
@@ -42,19 +55,6 @@ async function getTransactionsById(bearerToken, id) {
             amount: amount,
             currency: e.Amount.Currency,
         });
-    });
-
-    // Push some fake Data (will appear in savings & currents account as credit)
-
-    total += 225.0;
-
-    transactionsResponseArray.push({
-        transactionId: "123123",
-        transactionInfo: "Salärzahlung",
-        status: "Booked",
-        bookingDate: "03/04/2022",
-        amount: "225.00",
-        currency: "GBP",
     });
 
     return {
