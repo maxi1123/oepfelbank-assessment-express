@@ -29,6 +29,7 @@ I recommend using [Node Version Manager (nvm)](https://github.com/nvm-sh/nvm) fo
 - Run `nvm install <node-version>`
 - Use the environment `nvm use <node-version>`
 - In the project root run `npm install`
+- ⚠️ *Read .env.example and follow the instructions*
 
 ## ⚙️ Development server
 
