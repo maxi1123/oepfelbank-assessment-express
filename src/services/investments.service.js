@@ -36,11 +36,11 @@ async function getInvestmentAccounts(bearerToken) {
     // Push some fake data for a more saturated view
 
     investmentsResponse.data.accounts.map((e) => {
-        total += parseFloat(mathUtil.roundAndFix(e.balance));
+        total += 32583.35;
 
         investmentsResponseArray.push({
             accountId: "82da82b2-6770-b17f-1990-e9759e7f9fd2",
-            balance: '32583.35',
+            balance: "32583.35",
             holdings: [...e.holdings, ...e.holdings, ...e.holdings],
             transactions: e.transactions,
         });
