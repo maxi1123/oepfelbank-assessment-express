@@ -32,7 +32,7 @@ async function getTransactionsById(bearerToken, id) {
         transactionInfo: "Salärzahlung",
         status: "Booked",
         bookingDate: "02/25/2022",
-        amount: "225.00",
+        amount: 225.0,
         currency: "GBP",
     });
 
@@ -40,11 +40,11 @@ async function getTransactionsById(bearerToken, id) {
         let amount;
 
         if (e.CreditDebitIndicator === "Debit") {
-            amount = (-mathUtil.roundAndFix(e.Amount.Amount)).toFixed(2);
-            total += parseFloat(amount);
+            amount = -mathUtil.round(e.Amount.Amount);
+            total += amount;
         } else {
-            amount = mathUtil.roundAndFix(e.Amount.Amount);
-            total += parseFloat(amount);
+            amount = mathUtil.round(e.Amount.Amount);
+            total += amount;
         }
 
         transactionsResponseArray.push({
@@ -60,7 +60,7 @@ async function getTransactionsById(bearerToken, id) {
     return {
         accountId: id,
         transactions: transactionsResponseArray,
-        total: total.toFixed(2),
+        total: total,
     };
 }
 
@@ -84,12 +84,12 @@ async function getPendingTransactionsById(bearerToken, id) {
     }
 
     pendingResponse.data.Data.ScheduledPayment.map((e) => {
-        const amount = -mathUtil.roundAndFix(e.InstructedAmount.Amount);
-        total += parseFloat(amount);
+        const amount = -mathUtil.round(e.InstructedAmount.Amount);
+        total += amount;
 
         pendingResponseArray.push({
             schedDateTime: dateUtil.dateTransform(e.ScheduledPaymentDateTime),
-            amount: amount.toFixed(2),
+            amount: amount,
             currency: e.InstructedAmount.Currency,
             creditorAccount: e.CreditorAccount.Identification,
         });
@@ -98,7 +98,7 @@ async function getPendingTransactionsById(bearerToken, id) {
     return {
         accountId: id,
         transactions: pendingResponseArray,
-        total: total.toFixed(2),
+        total: total,
     };
 }
 

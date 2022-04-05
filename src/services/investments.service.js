@@ -1,6 +1,5 @@
 const axios = require("axios");
 const headerUtil = require("../utils/auth-header.util");
-const dateUtil = require("../utils/date.util");
 const mathUtil = require("../utils/math.util");
 const endpoints = require("../utils/endpoints.constants");
 
@@ -23,11 +22,11 @@ async function getInvestmentAccounts(bearerToken) {
     }
 
     investmentsResponse.data.accounts.map((e) => {
-        total += parseFloat(mathUtil.roundAndFix(e.balance));
+        total += mathUtil.round(e.balance);
 
         investmentsResponseArray.push({
             accountId: e.accountId,
-            balance: mathUtil.roundAndFix(e.balance),
+            balance: mathUtil.round(e.balance),
             holdings: e.holdings,
             transactions: e.transactions,
         });
@@ -40,7 +39,7 @@ async function getInvestmentAccounts(bearerToken) {
 
         investmentsResponseArray.push({
             accountId: "82da82b2-6770-b17f-1990-e9759e7f9fd2",
-            balance: "32583.35",
+            balance: 32583.35,
             holdings: [...e.holdings, ...e.holdings, ...e.holdings],
             transactions: e.transactions,
         });
@@ -48,7 +47,7 @@ async function getInvestmentAccounts(bearerToken) {
 
     return {
         accounts: investmentsResponseArray,
-        total: total.toFixed(2),
+        total: total,
     };
 }
 
